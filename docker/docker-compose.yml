@@ -1,7 +1,7 @@
 version: "3.8"
 services:
   app:
-    image: ghcr.io/ddobronastyy123/ml-prediction-service/ml-app:latest
+    image: ghcr.io/ddobronastyy123/ml-prediction-service:latest
     container_name: ml-app
     ports:
       - "5000:5000"
