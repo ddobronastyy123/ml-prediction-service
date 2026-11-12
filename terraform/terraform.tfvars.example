@@ -1,0 +1,4 @@
+pm_api_url           = "https://<IP_PROXMOX>:8006/api2/json"
+pm_api_token_id      = "root@pam!terraform"
+pm_api_token_secret  = "5febd27a-8455-4f0b-92bc-72cc38568a48"
+ssh_public_key       = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIH4nkMV5bYaGfV7iAy1GyULRL1FcF3y8dQ2XvDnJqDW6 student@example.com"
