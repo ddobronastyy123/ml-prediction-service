@@ -8,9 +8,6 @@ app = Flask(__name__)
 
 MODEL_PATH = os.getenv("MODEL_PATH", "/model/model.pkl")
 
-with open(MODEL_PATH, "rb") as f:
-    model = pickle.load(f)
-
 
 def get_db():
     return psycopg2.connect(
@@ -45,6 +42,9 @@ def predict():
         features = [float(value) for value in features]
     except (TypeError, ValueError):
         return jsonify({"error": "Features must be numeric"}), 400
+
+    with open(MODEL_PATH, "rb") as f:
+        model = pickle.load(f)
 
     pred = int(model.predict([features])[0])
     proba = float(max(model.predict_proba([features])[0]))

@@ -1,20 +1,15 @@
-
 version: "3.8"
-
 services:
   app:
-    build:
-      context: ..
-      dockerfile: docker/Dockerfile
-    image: ml-app:v1
+    image: ghcr.io/ddobronastyy123/ml-prediction-service/ml-app:latest
     container_name: ml-app
     ports:
       - "5000:5000"
     environment:
-      DB_HOST: "10.0.2.4"
-      DB_NAME: "ml_predictions"
-      DB_USER: "ml_app"
-      DB_PASSWORD: "StrongPassword"
-      DB_SSLMODE: "require"
-      MODEL_PATH: "/model/model.pkl"
+      DB_HOST: 10.0.2.4
+      DB_NAME: ml_predictions
+      DB_USER: ml_app
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_SSLMODE: require
+      MODEL_PATH: /model/model.pkl
     restart: unless-stopped
