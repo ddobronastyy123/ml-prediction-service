@@ -8,6 +8,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY app/ .
 
 COPY model/ /model/
+RUN cd / && python /model/train.py
 
 EXPOSE 5000
 
